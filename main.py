@@ -27,7 +27,7 @@ def multi_main():
 
     if validation.validate_multi(m1,m2):
         m=multi_matrices(m1,m2)
-        print(m)
+        print_matrix(m)
         end()
     else:
         end()
