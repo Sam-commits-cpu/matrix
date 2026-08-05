@@ -4,8 +4,9 @@ from utils.display import end
 from utils import validation
 from operations.addition import add_matrices
 from operations.multiplication import multi_matrices
+from operations.transpose import transpose_matrix
 
-
+#addition
 def add_main():
 
     m1=get_input()
@@ -21,6 +22,7 @@ def add_main():
     else:
         end()
 
+#multiplication
 def multi_main():
     m1=get_input()
     m2=get_input()
@@ -32,7 +34,15 @@ def multi_main():
     else:
         end()
 
+#transpose
+def trans_main():
+    m=get_input()
+    print_matrix(m.data)
 
+    AT=transpose_matrix(m)
+    print_matrix(AT)
+
+    end()
 
 if __name__=="__main__":
-    multi_main()
+    trans_main()
