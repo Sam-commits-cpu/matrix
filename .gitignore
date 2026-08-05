@@ -1,0 +1,10 @@
+
+#pycache
+*.py[c]
+
+#venv/
+.venv/
+
+#vsc
+.vscode
+
