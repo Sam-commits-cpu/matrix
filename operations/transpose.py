@@ -1,14 +1,11 @@
+from matrix import Matrix
+
 
 def transpose_matrix(m):
 
     A=m.data
-
-    result_matrix=[]
-    temp_row=[]
-
-    rows=len(A)
-    cols=len(A[0])
-
+    result_matrix,temp_row=[],[]
+    rows,cols=len(A),len(A[0])
 
     for row in range(cols):
             for col in range(rows):
@@ -17,5 +14,4 @@ def transpose_matrix(m):
             temp_row=[]
 
 
-    return result_matrix
-
+    return Matrix(result_matrix) 

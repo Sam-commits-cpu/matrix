@@ -6,8 +6,14 @@ from operations.addition import add_matrices
 from operations.multiplication import multi_matrices
 from operations.transpose import transpose_matrix
 from operations.scalermultiplication import scaler_multi_matrix
+from operations.identity import identity_matrix
 
-
+####################### README ##################################
+#                                                               #
+# Every Solution from module is a <Matrix instance>             #
+# use result.data in  print_matrix()                            #
+#                                                               #
+#################################################################
 
 #addition
 def add_main():
@@ -20,7 +26,7 @@ def add_main():
         print_matrix(m1.data)
         print_matrix(m2.data)
         m=add_matrices(m1,m2)
-        print_matrix(m)
+        print_matrix(m.data )
         end()
     else:
         end()
@@ -43,7 +49,7 @@ def trans_main():
     print_matrix(m.data)
 
     AT=transpose_matrix(m)
-    print_matrix(AT)
+    print_matrix(AT.data)
 
     end()
 
@@ -57,9 +63,16 @@ def scaler_multi_main():
 
     sm=scaler_multi_matrix(x,m)
 
-    print_matrix(sm)
+    print_matrix(sm.data)
 
+#creation of indentity matrix
+def identity_main():
+
+    i=int(input("Enter I :"))
+    In=identity_matrix(i)
+    print_matrix(In.data)
+    end()
 
 
 if __name__=="__main__":
-    scaler_multi_main()
+    identity_main()

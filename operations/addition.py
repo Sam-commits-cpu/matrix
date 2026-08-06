@@ -1,10 +1,11 @@
+from matrix import Matrix
+
+
 def add_matrices(a, b):
     
-    m1 = a.data
-    m2 = b.data
-
-    result_matrix = []
-    temp_row = []
+    m1,m2=a.data,b.data
+    result_matrix,temp_row = [],[]
+    
 
     for row in range(len(m1)):
         for col in range(len(m1[0])):
@@ -14,4 +15,4 @@ def add_matrices(a, b):
         result_matrix.append(temp_row)
         temp_row = []
 
-    return result_matrix
+    return Matrix(result_matrix)

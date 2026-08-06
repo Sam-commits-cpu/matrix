@@ -1,12 +1,12 @@
+from matrix import Matrix
+
+
 def multi_matrices(a,b):
 
-    m1=a.data
-    m2=b.data 
-
+    m1,m2=a.data,b.data    
     result=0
-    result_matrix=[]
-
-    temp_row=[]
+    result_matrix,temp_row=[],[]
+ 
 
     for m1_row in range(len(m1)):
         for m2_col in range(len(m2[0])):
@@ -18,4 +18,4 @@ def multi_matrices(a,b):
         temp_row=[]
 
 
-    return result_matrix
+    return Matrix(result_matrix)

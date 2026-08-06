@@ -1,8 +1,9 @@
+from matrix import Matrix
+
 def scaler_multi_matrix(x,m):
 
     matrix=m.data
-    result_matrix=[]
-    temp_row=[]
+    result_matrix,temp_row=[],[]
     result=1
 
     for row in range(len(matrix)):#rows
@@ -14,4 +15,4 @@ def scaler_multi_matrix(x,m):
         temp_row=[]
 
 
-    return result_matrix
+    return Matrix(result_matrix)
