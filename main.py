@@ -5,6 +5,9 @@ from utils import validation
 from operations.addition import add_matrices
 from operations.multiplication import multi_matrices
 from operations.transpose import transpose_matrix
+from operations.scalermultiplication import scaler_multi_matrix
+
+
 
 #addition
 def add_main():
@@ -29,7 +32,7 @@ def multi_main():
 
     if validation.validate_multi(m1,m2):
         m=multi_matrices(m1,m2)
-        print_matrix(m)
+        print_matrix(m.data)
         end()
     else:
         end()
@@ -44,5 +47,19 @@ def trans_main():
 
     end()
 
+#scaler multiplication
+def scaler_multi_main():
+
+    x=float(input("Enter lamda ::"))
+
+    m=get_input()
+    print_matrix(m.data)
+
+    sm=scaler_multi_matrix(x,m)
+
+    print_matrix(sm)
+
+
+
 if __name__=="__main__":
-    trans_main()
+    scaler_multi_main()
