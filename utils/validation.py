@@ -22,6 +22,7 @@ def validate_multi_dimension(a,b):
     else:
         print(f"xxx--- From validate_multi_dimension ---xxx")
         print(f"xxx--- [A](ixj) != [B](jxi) ---xxx")
+        return False
 
 #needs rows x col need to be same
 def validate_matrix_equality(A,B):
@@ -32,6 +33,15 @@ def validate_matrix_equality(A,B):
                         if a[row][col]!=b[row][col]:
                             return False
     return True
+
+#send only square matrix
+def validate_diagonal_matrix(A):
+    A=A.data
+    for row in range(len(A)):
+        for col in range(len(A[0])):
+            if A[row][col]!=0 and row!=col:
+                 return False
+    return True        
 
 
 

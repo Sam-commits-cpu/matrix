@@ -116,8 +116,32 @@ def trace_main():
     else:
         print("trace can't be calculated unless its a square matrix")
         
+#diagonal matrix
+def diagonal_main():
 
+    x=get_input()
+    print_matrix(x.data)
+    if len(x.data)==len(x.data[0]):
+        if validation.validate_diagonal_matrix(x):
+            print("its diagonal matrix")
+        else:
+            print("its not diagonal")
+    else:
+        print('its not square')
+
+#symmetric matrix
+def symmetric_main():
+    x=get_input()
+    if len(x.data)==len(x.data[0]):
+        xt=transpose_matrix(x)
+        if validation.validate_matrix_equality(x,xt):
+                print("Symmetric matrix")
+        else:
+                print("Not symmetric matrix")
+    else:
+        print("Not square matrix")
+    
 
 if __name__=="__main__":
-    trace_main()
+    symmetric_main()
     end()
