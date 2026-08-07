@@ -11,6 +11,7 @@ from operations.transpose import transpose_matrix
 from operations.scalermultiplication import scaler_multi_matrix
 from operations.identity import identity_matrix
 from operations.zero import zero_matrix
+from operations.trace import trace_matrix
 
 ####################### README ##################################
 #                                                                #
@@ -31,9 +32,8 @@ def add_main():
         print_matrix(m2.data)
         m=add_matrices(m1,m2)
         print_matrix(m.data )
-        end()
-    else:
-        end()
+        
+        
 
 #multiplication
 def multi_main():
@@ -43,9 +43,8 @@ def multi_main():
     if validation.validate_multi_dimension(m1,m2):
         m=multi_matrices(m1,m2)
         print_matrix(m.data)
-        end()
-    else:
-        end()
+        
+        
 
 #transpose
 def trans_main():
@@ -55,7 +54,7 @@ def trans_main():
     AT=transpose_matrix(m)
     print_matrix(AT.data)
 
-    end()
+    
 
 #scaler multiplication
 def scaler_multi_main():
@@ -75,7 +74,7 @@ def identity_main():
     i=int(input("Enter I :"))
     In=identity_matrix(i)
     print_matrix(In.data)
-    end()
+    
 
 #creation of zero matrix
 def zero_main():
@@ -98,15 +97,27 @@ def equality_main():
     if validation.validate_dimension(A,B):
         if validation.validate_matrix_equality(A,B):
             print("Both are Same Matrices")
-            end()
+            
         else:
             print("Not Same Matrices")
-            end()
-    else:
-        end()
+         
+        
 
-    
+#trace
+def trace_main():
+
+    x=get_input()
+    print_matrix(x.data)
+
+    if len(x.data)==len(x.data[0]):
+        trace=trace_matrix(x.data)
+        print(trace)    
+        
+    else:
+        print("trace can't be calculated unless its a square matrix")
+        
 
 
 if __name__=="__main__":
-    equality_main()
+    trace_main()
+    end()
