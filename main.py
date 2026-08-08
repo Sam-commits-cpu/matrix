@@ -141,7 +141,19 @@ def symmetric_main():
     else:
         print("Not square matrix")
     
+#skew-matrix AT=-A
+def skew_main():
+    A=get_input()
+    AT=transpose_matrix(A)
+    _A=scaler_multi_matrix(-1,A)
+    if validation.validate_dimension(AT,_A) and validation.validate_matrix_equality(AT,_A):
+        print("AT=-A")
+    else:
+        print("AT!=-A")
+
+
+
 
 if __name__=="__main__":
-    symmetric_main()
+    skew_main()
     end()
