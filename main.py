@@ -172,6 +172,20 @@ def lower_triangular_main():
         print("Not lower-triangular matrix")
 
 
+#orthogonal matrix check ATxA=I
+def orthogonal_main():
+    A=get_input()
+    if len(A.data)==len(A.data[0]):
+        AT=transpose_matrix(A)
+        result=multi_matrices(A,AT)
+        I=identity_matrix(len(A.data))
+        if validation.validate_matrix_equality(result,I):
+            print("It is a Orthogonal Matrix")
+        else:
+            print("It is Not")
+    else:
+        print("Enter a Square matrix")
+
 if __name__=="__main__":
-    lower_triangular_main()
+    orthogonal_main()
     end()
