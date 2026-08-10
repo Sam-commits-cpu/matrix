@@ -44,5 +44,23 @@ def validate_diagonal_matrix(A):
     return True        
 
 
+#upper-triangular matrix check
+def validate_upper_triangular_check_matrix(A):
+    a=A.data
+    for row in range(len(a)):
+        for col in range(len(a[0])):
+            if row>col and a[row][col]!=0:
+                return False
+    return True
 
+ 
+#Lower-triangular matrix check
+def validate_lower_triangular_check_matrix(A):
+    a=A.data
+    for row in range(len(a)):
+        for col in range(len(a[0])):
+            if row<col and a[row][col]!=0:
+                return False
+    return True
+     
 

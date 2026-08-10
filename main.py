@@ -13,12 +13,12 @@ from operations.identity import identity_matrix
 from operations.zero import zero_matrix
 from operations.trace import trace_matrix
 
-####################### README ##################################
-#                                                                #
-# Every Solution from module is a <Matrix instance>              #
-# use result.data in  print_matrix() - send the data not instance#
-# Always send instance during validation                         #
-#################################################################
+####################### READ.ME ###################################
+#                                                                 #
+# Every Solution from module is a <Matrix instance>               #
+# use result.data in  print_matrix() - send the data not instance #
+# Always send instance during validation                          #
+###################################################################
 
 #addition
 def add_main():
@@ -152,8 +152,26 @@ def skew_main():
         print("AT!=-A")
 
 
+#upper-Trianglur matrix check 
+#only elements below diagonal needs to be zero , doesn't matter if diagonal itself is zero
+def upper_triangular_main():
+    A=get_input()
+    print_matrix(A.data)
+    if validation.validate_upper_triangular_check_matrix(A) and len(A.data)==len(A.data[0]):
+        print("its Upper_triangular_matrix")
+    else:
+        print("Not upper-triangular-matrix")
+
+#lower-triangular matrix check
+def lower_triangular_main():
+    A=get_input()
+    print_matrix(A.data)
+    if validation.validate_lower_triangular_check_matrix(A) and len(A.data)==len(A.data[0]):
+        print("its lower-triangular matrix")
+    else:
+        print("Not lower-triangular matrix")
 
 
 if __name__=="__main__":
-    skew_main()
+    lower_triangular_main()
     end()
