@@ -1,3 +1,8 @@
+def validate_square_matrix(a):
+     x=a.data
+     return len(x)==len(x[0])
+
+
 def validate_dimension(a,b):
     x=a.data
     y=b.data

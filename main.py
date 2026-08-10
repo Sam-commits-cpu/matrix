@@ -12,6 +12,8 @@ from operations.scalermultiplication import scaler_multi_matrix
 from operations.identity import identity_matrix
 from operations.zero import zero_matrix
 from operations.trace import trace_matrix
+from operations.determinant2x2 import det_2x2
+from operations.determinant3x3 import det_3x3
 
 ####################### READ.ME ###################################
 #                                                                 #
@@ -186,6 +188,29 @@ def orthogonal_main():
     else:
         print("Enter a Square matrix")
 
+#determinant-2x2 
+def det_2x2_main():
+    A=get_input()
+    if validation.validate_square_matrix(A):
+        det=det_2x2(A)
+        if det:
+            print("det(a) :",det)
+            print("Inverse Exist")
+        else:
+            print("det(a) : ",det)
+            print("Inverse doesn't Exist")
+
+#determinant-3x3
+def det_3x3_main():
+    A=get_input()
+    if validation.validate_square_matrix(A):
+        det=det_3x3(A)
+        if det:
+            print("det(a) :",det)
+        else:
+            print("det(a) :",det)
+
+
 if __name__=="__main__":
-    orthogonal_main()
+    det_3x3_main()
     end()
