@@ -14,6 +14,7 @@ from operations.zero import zero_matrix
 from operations.trace import trace_matrix
 from operations.determinant2x2 import det_2x2
 from operations.determinant3x3 import det_3x3
+from operations.determinantnxn import det_nxn
 
 ####################### READ.ME ###################################
 #                                                                 #
@@ -104,14 +105,13 @@ def equality_main():
             print("Not Same Matrices")
          
         
-
 #trace
 def trace_main():
 
     x=get_input()
     print_matrix(x.data)
 
-    if len(x.data)==len(x.data[0]):
+    if validation.validate_square_matrix(x):
         trace=trace_matrix(x.data)
         print(trace)    
         
@@ -123,7 +123,7 @@ def diagonal_main():
 
     x=get_input()
     print_matrix(x.data)
-    if len(x.data)==len(x.data[0]):
+    if validation.validate_square_matrix(x):
         if validation.validate_diagonal_matrix(x):
             print("its diagonal matrix")
         else:
@@ -134,7 +134,7 @@ def diagonal_main():
 #symmetric matrix
 def symmetric_main():
     x=get_input()
-    if len(x.data)==len(x.data[0]):
+    if validation.validate_square_matrix(x):
         xt=transpose_matrix(x)
         if validation.validate_matrix_equality(x,xt):
                 print("Symmetric matrix")
@@ -177,7 +177,7 @@ def lower_triangular_main():
 #orthogonal matrix check ATxA=I
 def orthogonal_main():
     A=get_input()
-    if len(A.data)==len(A.data[0]):
+    if validation.validate_square_matrix(A):
         AT=transpose_matrix(A)
         result=multi_matrices(A,AT)
         I=identity_matrix(len(A.data))
@@ -210,7 +210,14 @@ def det_3x3_main():
         else:
             print("det(a) :",det)
 
+#determinant-nxn
+def det_nxn_main():
+    A=get_input()
+    if validation.validate_square_matrix(A):
+        det_A=det_nxn(A)
+        print(f"det(A) : ",det_A)
+
 
 if __name__=="__main__":
-    det_3x3_main()
+    det_nxn_main()
     end()
