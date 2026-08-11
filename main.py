@@ -16,6 +16,10 @@ from operations.determinant2x2 import det_2x2
 from operations.determinant3x3 import det_3x3
 from operations.determinantnxn import det_nxn
 from operations.minor import minor_matrix
+from operations.cofactor import cofactor_matrix
+
+
+
 
 ####################### READ.ME ###################################
 #                                                                 #
@@ -231,8 +235,39 @@ def minor_main():
     else:
         print("Not Square matrix")
 
+#cofactor
+#+-+,-+-,+-+
+def cofactor_main():
+    A=get_input()
+    if validation.validate_square_matrix(A):
+            mm=minor_matrix(A)
+            if mm:
+                print_matrix(mm.data)
+                cofac=cofactor_matrix(mm)
+                print_matrix(cofac.data) 
+            else:
+                print("")
+    else:
+            print("Not Square matrix")
 
+#adjoint 
+#transpose of cofactor of minor
+def adjoint_main():
+    A=get_input()
+    if validation.validate_square_matrix(A):
+            mm=minor_matrix(A)
+            if mm:
+                print_matrix(mm.data)
+                cofac=cofactor_matrix(mm)
+                print_matrix(cofac.data)
+                trans=transpose_matrix(cofac)
+                print_matrix(trans.data)
+
+            else:
+                print("")
+    else:
+            print("Not Square matrix")
 
 if __name__=="__main__":
-    minor_main()
+    adjoint_main()
     end()
