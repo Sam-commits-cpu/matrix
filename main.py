@@ -15,6 +15,7 @@ from operations.trace import trace_matrix
 from operations.determinant2x2 import det_2x2
 from operations.determinant3x3 import det_3x3
 from operations.determinantnxn import det_nxn
+from operations.minor import minor_matrix
 
 ####################### READ.ME ###################################
 #                                                                 #
@@ -218,6 +219,20 @@ def det_nxn_main():
         print(f"det(A) : ",det_A)
 
 
+#minor-matrix [m00...m22]
+def minor_main():
+    A=get_input()
+    if validation.validate_square_matrix(A):
+        result=minor_matrix(A)
+        if result:
+            print_matrix(result.data) 
+        else:
+            print("")
+    else:
+        print("Not Square matrix")
+
+
+
 if __name__=="__main__":
-    det_nxn_main()
+    minor_main()
     end()
