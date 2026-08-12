@@ -9,10 +9,16 @@ def minor_matrix(A):
     zero_mat=zero_matrix(len(a),len(a[0])) #instance
     temp_row=[]
 
-    if len(a)<=2:
-        print("")
-        print("This Module doesn't Support matrix <=2x2")
-        return None 
+    if len(a)==1:
+        zero_mat.data[0][0]=a[0][0]
+        return zero_mat
+    elif len(a)==2:
+        zero_mat.data[0][0]=a[1][1]
+        zero_mat.data[0][1]=a[1][0] 
+        zero_mat.data[1][0]=a[0][1] 
+        zero_mat.data[1][1]=a[0][0]
+        return zero_mat
+
 
     for current_row in range(len(a)):
         for current_col in range(len(a[0])):

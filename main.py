@@ -18,7 +18,7 @@ from operations.determinantnxn import det_nxn
 from operations.minor import minor_matrix
 from operations.cofactor import cofactor_matrix
 from operations.inverse2x2 import inverse_2x2_matrix
-
+from operations.inversenxn import inverse_nxn_matrix
 
 
 ####################### READ.ME ###################################
@@ -285,12 +285,22 @@ def inverse_2x2_main():
     else:
         print("Not Square Matrix")
 
-
-
+#inverse main for nxn
+def inverse_nxn_main():
+    A=get_input()
+    if validation.validate_square_matrix(A):
+        print_matrix(A.data)
+        a_inverse=inverse_nxn_matrix(A)
+        if a_inverse:
+            print_matrix(a_inverse.data)
+        else:
+            print()
+    else:
+        print("Not a Square matrix")
 
 
 
 
 if __name__=="__main__":
-    inverse_2x2_main()
+    inverse_nxn_main()
     end()
