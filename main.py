@@ -19,7 +19,7 @@ from operations.minor import minor_matrix
 from operations.cofactor import cofactor_matrix
 from operations.inverse2x2 import inverse_2x2_matrix
 from operations.inversenxn import inverse_nxn_matrix
-
+from operations.rowswap import row_swap_matrix
 
 ####################### READ.ME ###################################
 #                                                                 #
@@ -299,8 +299,20 @@ def inverse_nxn_main():
         print("Not a Square matrix")
 
 
-
+#row swap
+def row_swap_main():
+    A=get_input()
+    print_matrix(A.data)
+    print("R1->0 R2->1 .......")
+    f=int(input("Enter Row to be swaped ::"))
+    s=int(input("Enter Row to be swaped with ::"))
+    if f!=s:
+        print(f"r{f+1} <----> r{s+1}")
+        swap=row_swap_matrix(f,s,A)
+        print_matrix(swap.data)
+    else:
+        print("Give different inputs")
 
 if __name__=="__main__":
-    inverse_nxn_main()
+    row_swap_main()
     end()
