@@ -17,7 +17,7 @@ from operations.determinant3x3 import det_3x3
 from operations.determinantnxn import det_nxn
 from operations.minor import minor_matrix
 from operations.cofactor import cofactor_matrix
-
+from operations.inverse2x2 import inverse_2x2_matrix
 
 
 
@@ -26,6 +26,7 @@ from operations.cofactor import cofactor_matrix
 # Every Solution from module is a <Matrix instance>               #
 # use result.data in  print_matrix() - send the data not instance #
 # Always send instance during validation                          #
+# All Modules - produces new matrix instances                     #
 ###################################################################
 
 #addition
@@ -268,6 +269,28 @@ def adjoint_main():
     else:
             print("Not Square matrix")
 
+
+#inverse main
+#A^-1=(1/det(A))*adj(A)
+#Adj(A)= cofactor matrix -> transpose
+def inverse_2x2_main():
+    A=get_input()
+    if validation.validate_square_matrix(A):
+        print_matrix(A.data)
+        a_inverse=inverse_2x2_matrix(A)
+        if a_inverse:
+            print_matrix(a_inverse.data)
+        else:
+            print()
+    else:
+        print("Not Square Matrix")
+
+
+
+
+
+
+
 if __name__=="__main__":
-    adjoint_main()
+    inverse_2x2_main()
     end()
