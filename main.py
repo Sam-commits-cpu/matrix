@@ -21,6 +21,12 @@ from operations.inverse2x2 import inverse_2x2_matrix
 from operations.inversenxn import inverse_nxn_matrix
 from operations.rowswap import row_swap_matrix
 from operations.scalerrowmultiplication import scaler_row_multi_matrix
+from  operations.r_plus_kr import r_plus_kr_matrix
+
+
+
+
+
 
 ####################### READ.ME ###################################
 #                                                                 #
@@ -327,8 +333,21 @@ def scaler_row_multi_main():
     else:
         print("Enter Valid Row Index")
 
+#add multiple row to another
+def r_plus_kr_main():
+    A=get_input()
+    row1=int(input("Enter r1 -> r1+kr2 => r1 :: "))
+    scaler=float(input("Enter r1 -> r1+kr2 => k :: "))
+    row2=int(input("Enter r1 -> r1+kr2 => r2 :: "))
+    print_matrix(A.data)
+    if row1<len(A.data):
+        result=r_plus_kr_matrix(scaler,row1,row2,A)
+        print_matrix(result.data)
+
+    else:
+        print("Enter Valid row-index")
 
 
 if __name__=="__main__":
-    scaler_row_multi_main()
+    r_plus_kr_main()
     end()
