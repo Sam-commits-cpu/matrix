@@ -20,6 +20,7 @@ from operations.cofactor import cofactor_matrix
 from operations.inverse2x2 import inverse_2x2_matrix
 from operations.inversenxn import inverse_nxn_matrix
 from operations.rowswap import row_swap_matrix
+from operations.scalerrowmultiplication import scaler_row_multi_matrix
 
 ####################### READ.ME ###################################
 #                                                                 #
@@ -313,6 +314,21 @@ def row_swap_main():
     else:
         print("Give different inputs")
 
+#scaler row multiplication
+def scaler_row_multi_main():
+    A=get_input()
+    scaler=float(input("Enter scaler ::"))
+    rowno=int(input("Enter Index of row ::"))
+    print_matrix(A.data)
+    if  rowno<len(A.data):
+        result=scaler_row_multi_matrix(scaler,rowno,A)
+
+        print_matrix(result.data)
+    else:
+        print("Enter Valid Row Index")
+
+
+
 if __name__=="__main__":
-    row_swap_main()
+    scaler_row_multi_main()
     end()
