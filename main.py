@@ -22,7 +22,7 @@ from operations.inversenxn import inverse_nxn_matrix
 from operations.rowswap import row_swap_matrix
 from operations.scalerrowmultiplication import scaler_row_multi_matrix
 from  operations.r_plus_kr import r_plus_kr_matrix
-
+from operations.guassianelimination import guassian_elimination_matrix
 
 
 
@@ -347,7 +347,16 @@ def r_plus_kr_main():
     else:
         print("Enter Valid row-index")
 
+#gaussian elimination
+def guassian_elimination_main():
+    A=get_input()
+    result=guassian_elimination_matrix(A)
+
+    print_matrix(A.data)
+    print_matrix(result.data)
+
+
 
 if __name__=="__main__":
-    r_plus_kr_main()
+    guassian_elimination_main()
     end()
