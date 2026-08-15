@@ -2,8 +2,6 @@ from operations.rowswap import row_swap_matrix
 from operations.r_minus_kr import r_minus_kr_matrix
 
 
-from utils.display import print_matrix
-
 def guassian_elimination_matrix(A):
     found_pivot=False
     for current_row in range(len(A.data)):

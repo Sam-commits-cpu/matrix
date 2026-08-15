@@ -23,7 +23,7 @@ from operations.rowswap import row_swap_matrix
 from operations.scalerrowmultiplication import scaler_row_multi_matrix
 from  operations.r_plus_kr import r_plus_kr_matrix
 from operations.guassianelimination import guassian_elimination_matrix
-
+from operations.rref import backward_elimination_matrix
 
 
 
@@ -347,8 +347,9 @@ def r_plus_kr_main():
     else:
         print("Enter Valid row-index")
 
-#gaussian elimination
-def guassian_elimination_main():
+#gaussian elimination - process 
+#ref - row echelon form is resulting matrix
+def ref_main():
     A=get_input()
     result=guassian_elimination_matrix(A)
 
@@ -356,7 +357,20 @@ def guassian_elimination_main():
     print_matrix(result.data)
 
 
+#rref - reduced row echelon form - resultmatrix
+#backward elimination
+def rref_main():
+    A=get_input()
+    ref=guassian_elimination_matrix(A)
+    if validation.validate_upper_triangular_check_matrix(ref):
+        rref=backward_elimination_matrix(ref)
+        print(f"rref :: ")
+        print_matrix(rref.data)
+    else:
+        print("Error in Checking validation")
+
+
 
 if __name__=="__main__":
-    guassian_elimination_main()
+    rref_main()
     end()
