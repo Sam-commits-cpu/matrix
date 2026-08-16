@@ -24,7 +24,7 @@ from operations.scalerrowmultiplication import scaler_row_multi_matrix
 from  operations.r_plus_kr import r_plus_kr_matrix
 from operations.guassianelimination import guassian_elimination_matrix
 from operations.rref import backward_elimination_matrix
-
+from operations.rank import rank_matrix
 
 
 
@@ -370,7 +370,13 @@ def rref_main():
         print("Error in Checking validation")
 
 
+#matrix rank - count non-zero rows
+def rank_main():
+    A=get_input()
+    rank=rank_matrix(A)
+    print_matrix(A.data)
+    print(f"rank(A):{rank}")
 
 if __name__=="__main__":
-    rref_main()
+    rank_main()
     end()
