@@ -7,22 +7,16 @@ def guassian_elimination_matrix(A):
     for current_row in range(len(A.data)):
         for current_col in range(len(A.data[0])):
             if current_row == current_col and (current_row+1)<=len(A.data):
-
-                pivot=A.data[current_row][current_col]
-                
+                pivot=A.data[current_row][current_col]   
                 if pivot == 0  :
                     for temp_check_row in range(current_row,len(A.data)):
-
                         temp_pivot=A.data[temp_check_row][current_col]
-
                         if temp_pivot!=0:
                             A=row_swap_matrix(current_row,temp_check_row,A)
                             found_pivot=True
                             break
-
                     if not found_pivot:
                         continue          
-
                     pivot=A.data[current_row][current_col]
 
 

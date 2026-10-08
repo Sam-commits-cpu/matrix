@@ -25,7 +25,7 @@ from  operations.r_plus_kr import r_plus_kr_matrix
 from operations.guassianelimination import guassian_elimination_matrix
 from operations.rref import backward_elimination_matrix
 from operations.rank import rank_matrix
-
+from operations.Axb_extractor import Axb_extractor_matrix
 
 
 ####################### READ.ME ###################################
@@ -347,6 +347,7 @@ def r_plus_kr_main():
     else:
         print("Enter Valid row-index")
 
+# input - augmented matrix [A|b]
 #gaussian elimination - process 
 #ref - row echelon form is resulting matrix
 def ref_main():
@@ -357,7 +358,7 @@ def ref_main():
     print_matrix(result.data)
 
 
-#rref - reduced row echelon form - resultmatrix
+#rref - reduced row echelon form - result matrix
 #backward elimination
 def rref_main():
     A=get_input()
@@ -377,6 +378,51 @@ def rank_main():
     print_matrix(A.data)
     print(f"rank(A):{rank}")
 
+#linear system AX=b 
+# input- augmented matrix [A|b] 
+# [A|b] -> guassian elimination -> ref -> rref -> then we check
+def linear_system_main():
+    inp_matrix=get_input()
+    print("--------------------")
+    print("INPUT : ")
+    print_matrix(inp_matrix.data)
+    ref=guassian_elimination_matrix(inp_matrix)
+    print("--------------------")
+    print("REF : ")
+    print_matrix(ref.data)
+    if validation.validate_upper_triangular_check_matrix(ref):
+        rref=backward_elimination_matrix(ref)
+        print("--------------------")
+        print("RREF : ")
+        print_matrix(rref.data)
+
+        A,b=Axb_extractor_matrix(rref)
+        
+        print("--------------------")
+        print("A : ")
+        print_matrix(A.data)
+        print("--------------------")
+        print("b : ")
+        print_matrix(b.data)
+
+        #validate_infinite_sol_matrix and validate_no_solution_matrix also exists
+        if validation.validate_unique_sol_matrix(A,b,rref):
+            print("Unqiue Solution")
+        else:
+            if validation.validate_infinite_sol_matrix(A,b,rref):
+                print("Infinite Solutions")
+            elif validation.validate_no_sol_matrix(A,b,rref):
+                print("No Solution")
+        
+
+
+
+    else:
+        print("Error in Checking validation")
+
+
+
+
 if __name__=="__main__":
-    rank_main()
+    linear_system_main()
     end()

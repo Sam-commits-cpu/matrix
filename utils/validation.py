@@ -1,3 +1,5 @@
+from operations.rank import rank_matrix
+
 def validate_square_matrix(a):
      x=a.data
      return len(x)==len(x[0])
@@ -67,5 +69,36 @@ def validate_lower_triangular_check_matrix(A):
             if row<col and a[row][col]!=0:
                 return False
     return True
-     
 
+
+
+#validate infinite-sol
+def validate_infinite_sol_matrix(A,b,Ab):
+
+    rankAb=rank_matrix(Ab)
+    rankA=rank_matrix(A)
+    if rankA==rankAb and rankAb<len(A.data[0]):
+         return True
+    else:
+        return False
+
+#validate unique-sol
+def validate_unique_sol_matrix(A,b,Ab):
+
+    rankAb=rank_matrix(Ab)
+    rankA=rank_matrix(A)
+    if rankA==rankAb==len(A.data[0]):
+         return True
+    else:
+        return False
+
+    
+#validate no-sol
+def validate_no_sol_matrix(A,b,Ab):
+
+    rankAb=rank_matrix(Ab)
+    rankA=rank_matrix(A)
+    if rankA<rankAb:
+         return True
+    else:
+        return False
