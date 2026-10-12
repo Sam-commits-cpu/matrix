@@ -26,7 +26,7 @@ from operations.guassianelimination import guassian_elimination_matrix
 from operations.rref import backward_elimination_matrix
 from operations.rank import rank_matrix
 from operations.Axb_extractor import Axb_extractor_matrix
-
+from operations.LUdecomposition import LUdecomposition_matrix
 
 ####################### READ.ME ###################################
 #                                                                 #
@@ -409,20 +409,31 @@ def linear_system_main():
         if validation.validate_unique_sol_matrix(A,b,rref):
             print("Unqiue Solution")
         else:
+            #in rare cases divisionbyzero error occurs if entire row is zero
             if validation.validate_infinite_sol_matrix(A,b,rref):
                 print("Infinite Solutions")
             elif validation.validate_no_sol_matrix(A,b,rref):
                 print("No Solution")
-        
-
-
-
     else:
         print("Error in Checking validation")
 
+#LU decomposition
+#LUx=b | guassian elimination -square matrix -> upper triangluar matrix -> U
+#
 
+def LUdecomposition_main():
+    inp_matrix=get_input()
+    print("--------------------")
+    print("INPUT : ")
+    print_matrix(inp_matrix.data)
+    if validation.validate_square_matrix(inp_matrix):
+        L,U=LUdecomposition_matrix(inp_matrix)
+        print("-------------L :")
+        print_matrix(L.data)
+        print("-------------U :")
+        print_matrix(U.data)
 
 
 if __name__=="__main__":
-    linear_system_main()
+    LUdecomposition_main()
     end()
